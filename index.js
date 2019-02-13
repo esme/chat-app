@@ -24,6 +24,7 @@ io.on('connection', function(socket){
         for(var i=0; i<users.length; i++) {
             if(users[i] == user) {
                 delete users[users[i]];
+                console.log(user);
             }
         }
         updateClients(); 
