@@ -12,19 +12,18 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    io.emit('connection message', 'a user connected');
-
     socket.on('adduser', function (user) {
+        io.emit('connection message', user + ' connected');
         socket.user = user;
         users.push(user);
         updateClients();
     });
 
     socket.on('disconnect', function (user) {
+        io.emit('connection message', socket.user + ' disconnected');
         for(var i=0; i<users.length; i++) {
-            if(users[i] == user) {
-                delete users[users[i]];
-                console.log(user);
+            if(users[i] == socket.user) {
+                users.splice(i,1);
             }
         }
         updateClients(); 

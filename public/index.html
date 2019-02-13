@@ -39,9 +39,8 @@
           socket.on('update', function (users){
               userList = users;
               $('#user').empty();
-              console.log($('#user'));
               for(var i=0; i<userList.length; i++) {
-                  $('#user').append("<p>" + userList[i] + " joined </p>"); 
+                  $('#user').append("<p>" + userList[i] + "</p>"); 
               }
               let scrollHeight = $('#users')[0].scrollHeight;
               $('#users').scrollTop(scrollHeight);
