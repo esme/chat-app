@@ -3,11 +3,17 @@
   <head>
     <title>Socket.IO chat</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <nav class="toolbar">
+      <p class="logo">Chatroom</p>
       <p id="name">User</p>
   </nav>
-  <body class="dark" onload="getName()">
+  <body>
+      <p id="userOnline">Users Online</p>
+      <div id="users">
+          <p id="user"></p>
+      </div>
       <div class="chatBox">
         <ul class="messages"></ul>
       </div>
@@ -17,17 +23,30 @@
       <script src="/socket.io/socket.io.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script>
-          function getName() {
-            var name = $('#name').val();
-            if (name == "") {
-              name = prompt("What is your name?");
-              $('#name').text(name);
-              $('#name').val(name);
-            }
-          }
 
         $(function (){
           var socket = io();
+
+          socket.on('connect', function (){
+              var name = $('#name').val();
+              socket.emit('adduser', name = prompt("What's your name?"));
+              $('#name').text(name);
+              $('#name').val(name);
+          });          
+
+          var userList = [];
+
+          socket.on('update', function (users){
+              userList = users;
+              $('#user').empty();
+              console.log($('#user'));
+              for(var i=0; i<userList.length; i++) {
+                  $('#user').append("<p>" + userList[i] + " joined </p>"); 
+              }
+              let scrollHeight = $('#users')[0].scrollHeight;
+              $('#users').scrollTop(scrollHeight);
+          });
+
           $('form').submit(function getName(e){
             e.preventDefault(); // prevents page reloading
             var name = $('#name').val();
