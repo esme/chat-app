@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <nav class="toolbar">
+      <p id="name">User</p>
+  </nav>
+  <body class="dark" onload="getName()">
+      <div class="chatBox">
+        <ul class="messages"></ul>
+      </div>
+      <form action="">
+        <input id="chatInput" placeholder="Type a message" autocomplete="off" />
+      </form>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+          function getName() {
+            var name = $('#name').val();
+            if (name == "") {
+              name = prompt("What is your name?");
+              $('#name').text(name);
+              $('#name').val(name);
+            }
+          }
+
+        $(function (){
+          var socket = io();
+          $('form').submit(function getName(e){
+            e.preventDefault(); // prevents page reloading
+            var name = $('#name').val();
+            socket.emit('chat message', name + ": " + $('#chatInput').val());
+            $('#chatInput').val('');
+            return false;
+          });
+
+          socket.on('chat message', function(msg){
+            $('.messages').append($('<li>').text(msg));
+            let scrollHeight = $('.chatBox')[0].scrollHeight;
+            $('.chatBox').scrollTop(scrollHeight);
+          });
+
+          socket.on('connection message', function(msg){
+            $('.messages').append($('<li id="connect">').text(msg));
+            let scrollHeight = $('.chatBox')[0].scrollHeight;
+            $('.chatBox').scrollTop(scrollHeight);
+          });          
+
+        });
+      </script>
+    </body>
+</html>  
