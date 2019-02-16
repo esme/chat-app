@@ -1,7 +1,6 @@
 body{
       font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-image: url(https://js.intercomcdn.com/images/background-1.1829ebd9.png);
-    background-size: 417px 417px;
     background-repeat: repeat;
 }
 .test-emoji{
@@ -224,7 +223,7 @@ body{
     z-index: 2147483003;
     position: absolute;
     bottom: 50px;
-    right: calc(10% - 165px);
+    right: calc(40% - 165px);
     box-shadow: 0 1px 15px 1px rgba(0,0,0,.08);
     background-color: #fff;
     border-radius: 6px;
@@ -329,7 +328,8 @@ body{
   border:none;  
   border-radius: 5px;
   position: absolute;
-  bottom: 4.8%;
-  right: 9.8%;
+  bottom: 2%;
+  margin: 0;
+  right: 0;
   outline:none;
 }
