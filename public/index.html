@@ -97,7 +97,7 @@
         });
         
         $('.intercom-composer-popover-input').on('input', function() {
-            var query = this.value;
+            var query = this.value.toLowerCase();
             if(query != ""){
               $(".intercom-emoji-picker-emoji:not([title*='"+query+"'])").hide();
             }
