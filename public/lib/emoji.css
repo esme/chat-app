@@ -224,7 +224,7 @@ body{
     z-index: 2147483003;
     position: absolute;
     bottom: 50px;
-    right: calc(40% - 165px);
+    right: calc(10% - 165px);
     box-shadow: 0 1px 15px 1px rgba(0,0,0,.08);
     background-color: #fff;
     border-radius: 6px;
