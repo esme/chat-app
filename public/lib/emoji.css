@@ -4,14 +4,6 @@ body{
     /* background-size: 417px 417px; */
     /* background-repeat: repeat; */
 }
-.test-emoji{
-  position: absolute;
-  text-align:center;
-  font-size: 2rem;
-  left: 0%;
-  width: 100%;
-  top: 20%;
-}
 
 .intercom-composer-popover-input{
     font-size-adjust: none;
@@ -324,7 +316,8 @@ body{
 }
 
 .chat-input-tool{
-  background-color: #32A8E6;
+  /* background-color: #32A8E6; */
+  background-color: transparent;
   padding: 10px;
   border:none;  
   border-radius: 5px;
