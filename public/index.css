@@ -9,7 +9,6 @@ body {
 
 form {
     position: fixed;
-    height: 100%;
     width: 80%;
     left: 10%;
     top: 90%;
@@ -47,7 +46,7 @@ form input {
 
 .chatBox {
     position: fixed;
-    height: 60%;
+    height: 60vh;
     width: 80%;
     background-color: white;
     border: 1px solid #ccc;
