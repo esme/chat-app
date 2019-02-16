@@ -1,7 +1,8 @@
 body{
-      font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-image: url(https://js.intercomcdn.com/images/background-1.1829ebd9.png);
-    background-repeat: repeat;
+      /* font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    /* background-image: url(https://js.intercomcdn.com/images/background-1.1829ebd9.png); */
+    /* background-size: 417px 417px; */
+    /* background-repeat: repeat; */
 }
 .test-emoji{
   position: absolute;
